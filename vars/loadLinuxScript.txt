@@ -1,0 +1,1 @@
+Simple method to load an external script
