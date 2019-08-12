@@ -12,8 +12,8 @@ EOF
 }
 
 
-#fg="**$(generate_post_data)**"
-#echo "fg is${fg}"
+fg="**$(generate_post_data)**"
+echo "fg is${fg}"
 
 ret=`curl -D- -u ${CREDS} \
 --insecure  -vvvv -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=Default&procedureName=Echo" \
@@ -22,7 +22,7 @@ ret=`curl -D- -u ${CREDS} \
 
 # -d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
 
- 
+
 
 
 
