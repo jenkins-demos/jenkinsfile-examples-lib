@@ -32,8 +32,8 @@ fi
 generate_post_data()
 {
   cat <<EOF
-{
+
   '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'
-}
+
 EOF
 }
