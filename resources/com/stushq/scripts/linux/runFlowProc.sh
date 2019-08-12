@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-echo "running flow"
 CREDS=$1
 FLOWSERVER=$2
 
@@ -7,7 +6,7 @@ FLOWSERVER=$2
 
 generate_post_data()
 {
-  cat <<EOF
+cat <<EOF
   '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'
 EOF
 }
@@ -41,10 +40,3 @@ else
   echo "Job id = ${job_id}"
   exit 0
 fi
-
-generate_post_data()
-{
-cat <<EOF
-'{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'
-EOF
-}
