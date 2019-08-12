@@ -12,10 +12,8 @@ echo "received [${DAT}]"
 ret=`curl -D- -u ${CREDS} \
 --insecure  -vvvv -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=Default&procedureName=Echo" \
 -H "accept: application/json" \
--d '$DAT'`
-
-# -d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
-
+-d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
+# -d '$DAT'`
 job_id=$(echo $ret | grep jobId |cut -d '"' -f 4)
 #echo "$job_id"
 
