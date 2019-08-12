@@ -22,7 +22,7 @@ ret=`curl -D- -u ${CREDS} \
 
 # -d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
 
-     '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'
+ 
 
 
 
