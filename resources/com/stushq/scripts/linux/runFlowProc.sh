@@ -9,4 +9,4 @@ ret=`curl -D- -u ${CREDS} \
 #echo $ret | grep jobId |cut -d '"' -f 4
 build_id=$(echo $ret | grep jobId |cut -d '"' -f 4)
 echo "$build_id"
-exit $build_id
+exit 1
