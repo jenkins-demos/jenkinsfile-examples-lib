@@ -4,7 +4,7 @@ CREDS=$1
 FLOWSERVER=$2
 
 
-echo "received [${DAT}]"
+
 generate_post_data()
 {
   cat <<EOF
@@ -21,7 +21,7 @@ ret12="curl -D- -u ${CREDS} \
 -H "accept: application/json" \
 -d $(generate_post_data)`"
 
-echo $rt
+echo $ret12
 
 ret=`curl -D- -u ${CREDS} \
 --insecure  -vvvv -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=Default&procedureName=Echo" \
