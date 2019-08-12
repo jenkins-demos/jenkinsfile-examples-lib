@@ -18,7 +18,7 @@ echo "fg is${fg}"
 ret=`curl -D- -u ${CREDS} \
 --insecure  -vvvv -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=Default&procedureName=Echo" \
 -H "accept: application/json" \
--d '$(generate_post_data)'`
+-d "$(generate_post_data)"`
 
 # -d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
 
