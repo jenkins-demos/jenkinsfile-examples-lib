@@ -16,6 +16,13 @@ EOF
 fg="$(generate_post_data)"
 echo "fg is ${fg}"
 
+ret12="curl -D- -u ${CREDS} \
+--insecure  -vvvv -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=Default&procedureName=Echo" \
+-H "accept: application/json" \
+-d $(generate_post_data)`"
+
+echo $rt
+
 ret=`curl -D- -u ${CREDS} \
 --insecure  -vvvv -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=Default&procedureName=Echo" \
 -H "accept: application/json" \
