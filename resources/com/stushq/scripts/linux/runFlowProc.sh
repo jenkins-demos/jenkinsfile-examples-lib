@@ -5,7 +5,7 @@ FLOWSERVER=$2
 ret=`curl -D- -u ${CREDS} \
 --insecure  -v -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=Default&procedureName=Echo" \
 -H "accept: application/json" \
--d '{"actualParameter":[{"actualParameterName":"arg2","value":"1234567"}]}'`
+-d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
 
 job_id=$(echo $ret | grep jobId |cut -d '"' -f 4)
 #echo "$job_id"
