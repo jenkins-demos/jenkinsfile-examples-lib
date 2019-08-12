@@ -21,8 +21,7 @@ ret=`curl -D- -u ${CREDS} \
 -H "accept: application/json" \
 -d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
 
-# -d '$(generate_post_data)'`
-# -d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
+
 # -d '$DAT'`
 
 job_id=$(echo $ret | grep jobId |cut -d '"' -f 4)
