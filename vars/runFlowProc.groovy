@@ -1,8 +1,12 @@
 def call(Map config) {
     loadLinuxScript(name: 'runFlowProc.sh')
-    //def proc ="./runFlowProc.sh ${config.flowCreds} ${config.flowServer}".execute()
-    echo "testing *************"
-    def r = sh "./runFlowProc.sh ${config.flowCreds} ${config.flowServer}"
+
+    foo=$(cat <<EOF
+            {"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}
+            EOF
+    )
+
+    def r = sh "./runFlowProc.sh ${config.flowCreds} ${config.flowServer} ${foo}"
     echo "ret is $r"
 
 }

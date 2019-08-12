@@ -2,10 +2,17 @@
 echo "running flow"
 CREDS=$1
 FLOWSERVER=$2
+DAT=$3
+
+
+
+
 ret=`curl -D- -u ${CREDS} \
 --insecure  -v -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=Default&procedureName=Echo" \
 -H "accept: application/json" \
--d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
+-d $DAT`
+
+# -d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
 
 job_id=$(echo $ret | grep jobId |cut -d '"' -f 4)
 #echo "$job_id"
