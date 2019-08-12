@@ -9,7 +9,9 @@ ret=`curl -D- -u ${CREDS} \
 #echo $ret | grep jobId |cut -d '"' -f 4
 build_id=$(echo $ret | grep jobId |cut -d '"' -f 4)
 echo "$build_id"
-
-#if [[ "${build_id}" =~ [^a-zA-Z0-9\ ] ]];
-
-#then BLAH; fi
+# af300919-bd1e-11e9-ae46-02425352dfc1
+pat="[a-z]|[A-Z]|[\-][0-9]"
+if [[ "${build_id}" =~ $pat ]];
+then
+echo "yes"
+fi
