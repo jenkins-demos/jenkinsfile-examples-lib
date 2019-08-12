@@ -4,7 +4,7 @@ CREDS=$1
 FLOWSERVER=$2
 DAT=@3
 
-echo "received [${DAT}]"
+echo 'received [${DAT}]'
 
 
 
