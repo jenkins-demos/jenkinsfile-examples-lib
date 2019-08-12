@@ -13,7 +13,7 @@ EOF
 }
 
 
-fg="${generate_post_data}"
+generate_post_data
 echo "fg is ${fg}"
 
 ret=`curl -D- -u ${CREDS} \
