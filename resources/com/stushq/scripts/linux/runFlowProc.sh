@@ -14,7 +14,7 @@ EOF
 
 
 fg="**$(generate_post_data)**"
-echo "fg is ${fg}"
+echo "fg is${fg}"
 
 ret=`curl -D- -u ${CREDS} \
 --insecure  -vvvv -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=Default&procedureName=Echo" \
