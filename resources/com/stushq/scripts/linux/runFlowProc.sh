@@ -5,6 +5,12 @@ FLOWSERVER=$2
 DAT=$3
 
 echo "received [${DAT}]"
+generate_post_data()
+{
+  cat <<EOF
+  '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'
+EOF
+}
 
 
 fg=${generate_post_data}
@@ -33,8 +39,6 @@ fi
 generate_post_data()
 {
   cat <<EOF
-
   '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'
-
 EOF
 }
