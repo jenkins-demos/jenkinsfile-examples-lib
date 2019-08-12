@@ -11,7 +11,7 @@ build_id=$(echo $ret | grep jobId |cut -d '"' -f 4)
 echo "$build_id"
 # af300919-bd1e-11e9-ae46-02425352dfc1
 pat="[a-z]|[A-Z]|[\-][0-9]"
-if [[ "${build_id}" =~ $pat ]];
+if [[ ! "${build_id}" =~ $pat ]];
 then
-echo "yes"
+echo "failed"
 fi
