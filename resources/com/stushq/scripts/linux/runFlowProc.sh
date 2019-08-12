@@ -8,5 +8,8 @@ ret=`curl -D- -u ${CREDS} \
 -d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
 #echo $ret | grep jobId |cut -d '"' -f 4
 build_id=$(echo $ret | grep jobId |cut -d '"' -f 4)
-#echo "$build_id"
-exit 0
+echo "$build_id"
+
+#if [[ "${build_id}" =~ [^a-zA-Z0-9\ ] ]];
+
+#then BLAH; fi
