@@ -3,6 +3,9 @@ CREDS=$1
 FLOWSERVER=$2
 JSON_ARGS=$3
 
+
+echo "json args was "${JSON_ARGS}"
+
 generate_post_data()
 {
 cat <<EOF
