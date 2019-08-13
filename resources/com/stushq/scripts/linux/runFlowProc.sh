@@ -7,7 +7,7 @@ FLOWSERVER=$2
 generate_post_data()
 {
 cat <<EOF
-'{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'
+{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}
 EOF
 }
 
@@ -18,7 +18,8 @@ echo "fg is${fg}"
 ret=`curl -D- -u ${CREDS} \
 --insecure  -vvvv -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=Default&procedureName=Echo" \
 -H "accept: application/json" \
--d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
+--data "$(generate_post_data)"`
+#-d '{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}'`
 
 # --data "$(generate_post_data)"`
 
