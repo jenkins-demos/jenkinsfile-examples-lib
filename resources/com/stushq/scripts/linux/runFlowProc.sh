@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 CREDS=$1
 FLOWSERVER=$2
-JSON_ARGS={"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}
+JSON_ARGS={\"actualParameter\":[{\"actualParameterName\":\"arg1\",\"value\":\"1234567\"}]}
+
 generate_post_data()
 {
 cat <<EOF
