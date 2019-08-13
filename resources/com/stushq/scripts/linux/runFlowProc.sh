@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 CREDS=$1
 FLOWSERVER=$2
-
+JSON_ARGS={"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}
 generate_post_data()
 {
 cat <<EOF
@@ -12,7 +12,7 @@ EOF
 ret=`curl -D- -u ${CREDS} \
 --insecure  -vvvv -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=Default&procedureName=Echo" \
 -H "accept: application/json" \
---data "$(generate_post_data)"`
+--data "${JSON_ARGS}"`
 
 job_id=$(echo $ret | grep jobId |cut -d '"' -f 4)
 
