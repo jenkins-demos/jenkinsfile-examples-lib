@@ -20,5 +20,6 @@ then
   exit 1
 else
   echo "Job id = ${job_id}"
+  echo "more output"
   exit 0
 fi
