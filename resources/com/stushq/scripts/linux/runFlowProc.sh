@@ -2,6 +2,8 @@
 CREDS=$1
 FLOWSERVER=$2
 JSON_ARGS=$3
+PROC_NAME=$4
+PROJ_NAME=$5
 
 
 echo "json args was - ${JSON_ARGS}"
@@ -15,7 +17,7 @@ EOF
 
 
 ret=`curl -D- -u ${CREDS} \
---insecure  -vvvv -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=Default&procedureName=Echo" \
+--insecure  -vvvv -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=${PROJ_NAME}&procedureName=${PROC_NAME}" \
 -H "accept: application/json" \
 --data "${JSON_ARGS}"`
 
