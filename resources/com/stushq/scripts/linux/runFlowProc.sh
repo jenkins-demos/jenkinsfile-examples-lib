@@ -6,26 +6,8 @@ PROC_NAME=$4
 PROJ_NAME=$5
 OPTIONS=$6
 
-echo "creds = ${CREDS}"
-echo "svr = ${FLOWSERVER}"
-echo "jsonargs = ${JSON_ARGS}"
-echo "proc name  = ${PROC_NAME}"
-echo "proj name = ${PROJ_NAME}"
-echo "options = ${OPTIONS}"
-
-
-echo "json args was - ${JSON_ARGS}"
-
-generate_post_data()
-{
-cat <<EOF
-{"actualParameter":[{"actualParameterName":"arg1","value":"1234567"}]}
-EOF
-}
-
-
 ret=`curl -D- -u ${CREDS} \
-$OPTIONS -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=${PROJ_NAME}&procedureName=${PROC_NAME}" \
+$OPTIONS "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=${PROJ_NAME}&procedureName=${PROC_NAME}" \
 -H "accept: application/json" \
 --data "${JSON_ARGS}"`
 
