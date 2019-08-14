@@ -6,7 +6,7 @@ def call(Map config) {
 
     def r = sh label: '', returnStdout: true, script: "./runFlowProc.sh ${config.flowCreds} ${config.flowServer} ${config.jsonArgs} ${config.procName} ${config.projName} ${config.curlOptions}"
     echo r
-    retun r
+    return r
 
 
 }
