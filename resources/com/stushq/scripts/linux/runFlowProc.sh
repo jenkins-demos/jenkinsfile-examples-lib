@@ -7,7 +7,7 @@ PROJ_NAME=$5
 OPTIONS=$6
 
 ret=`curl -D- -u ${CREDS} \
-$OPTIONS "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=${PROJ_NAME}c&procedureName=${PROC_NAME}" \
+$OPTIONS "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=${PROJ_NAME}&procedureName=${PROC_NAME}" \
 -H "accept: application/json" \
 --data "${JSON_ARGS}"`
 
