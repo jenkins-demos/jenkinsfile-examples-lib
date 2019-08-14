@@ -4,7 +4,7 @@ def call(Map config) {
     //echo "ret is $r"
 
 
-    def r = sh label: '', returnStdout: true, script: "./runFlowProc.sh ${config.flowCreds} ${config.flowServer} ${config.jsonArgs} ${config.procName} ${config.projName} ${config.curlOptions}"
+    def r = sh label: 'mylabel', returnStdout: true, script: "./runFlowProc.sh ${config.flowCreds} ${config.flowServer} ${config.jsonArgs} ${config.procName} ${config.projName} ${config.curlOptions}"
     echo r
     return r
 
