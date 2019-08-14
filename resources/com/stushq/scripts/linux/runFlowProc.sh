@@ -25,7 +25,7 @@ EOF
 
 
 ret=`curl -D- -u ${CREDS} \
-$VERBOSE $INSECURE -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=${PROJ_NAME}&procedureName=${PROC_NAME}" \
+$OPTIONS -X POST "${FLOWSERVER}/rest/v1.0/jobs?request=runProcedure&projectName=${PROJ_NAME}&procedureName=${PROC_NAME}" \
 -H "accept: application/json" \
 --data "${JSON_ARGS}"`
 
