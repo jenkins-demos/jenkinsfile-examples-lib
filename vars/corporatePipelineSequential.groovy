@@ -15,41 +15,49 @@
               stage("build8") {
                 steps {
                   echo "run build 8"
+                  sh 'sleep 5'
                 }
                 post {
                   success {
                     echo "ran build 8"
+                    sh 'sleep 5'
                   }
                 }
               }
               stage('Backend Java 8') {
                 steps {
                    echo "run backend java 8"
+                   sh 'sleep 5'
                 }
                 post {
                   always {
                      echo "junit run build java 8"
+                     sh 'sleep 5'
                   }
                 }
               }
               stage('Frontend') {
                 steps {
                    echo "run frontend"
+                   sh 'sleep 5'
                 }
                 post {
                   always {
                    echo "ran frontend"
+                   sh 'sleep 5'
                   }
                 }
               }
               stage('Performance Java 8') {
                 steps {
                    echo "run perf java 8"
+                   sh 'sleep 5'
                 }
               }
               stage('Static Java 8') {
                 steps {
                   echo "run static java 8"
+                  sh 'sleep 5'
                 }
               }
             }
@@ -60,41 +68,49 @@
               stage("build7") {
                 steps {
                    echo "run java 7"
+                   sh 'sleep 5'
                 }
                 post {
                   success {
                      echo "run java 7"
+                     sh 'sleep 5'
                   }
                 }
               }
               stage('Backend Java 7') {
                 steps {
                   echo "run backend java 7"
+                  sh 'sleep 5'
                 }
                 post {
                   always {
                    echo "ran backend java 7"
+                   sh 'sleep 5'
                   }
                 }
               }
               stage('Frontend Java 7') {
                 steps {
                   echo "run frontend java 7"
+                  sh 'sleep 5'
                 }
                 post {
                   always {
                     echo "ran frontend java 7"
+                    sh 'sleep 5'
                   }
                 }
               }
               stage('Performance Java 7') {
                 steps {
                   echo "run perf java 7"
+                  sh 'sleep 5'
                 }
               }
               stage('Static Java 7') {
                 steps {
                   echo "ran perf java 7"
+                  sh 'sleep 5'
                 }
               }
             }
