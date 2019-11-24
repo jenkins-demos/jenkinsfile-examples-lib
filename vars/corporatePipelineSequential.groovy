@@ -1,4 +1,4 @@
-def call(body) {
+ def call(body) {
   def pipelineParams= [:]
   body.resolveStrategy = Closure.DELEGATE_FIRST
   body.delegate = pipelineParams
@@ -14,46 +14,42 @@ def call(body) {
             stages {
               stage("build8") {
                 steps {
-                  runLinuxScript(name: "build.sh")
+                  echo "run build 8"
                 }
                 post {
                   success {
-                    stash(name: 'Java 8', includes: 'target/**')
+                    echo "ran build 8"
                   }
                 }
               }
               stage('Backend Java 8') {
                 steps {
-                  unstash 'Java 8'
-                  sh './jenkins/test-backend.sh'
+                   echo "run backend java 8"
                 }
                 post {
                   always {
-                    junit 'target/surefire-reports/**/TEST*.xml'
+                     echo "junit run build java 8"
                   }
                 }
               }
               stage('Frontend') {
                 steps {
-                  unstash 'Java 8'
-                  sh './jenkins/test-frontend.sh'
+                   echo "run frontend"
                 }
                 post {
                   always {
-                    junit 'target/test-results/**/TEST*.xml'
+                   echo "ran frontend"
                   }
                 }
               }
               stage('Performance Java 8') {
                 steps {
-                  unstash 'Java 8'
-                  sh './jenkins/test-performance.sh'
+                   echo "run perf java 8"
                 }
               }
               stage('Static Java 8') {
                 steps {
-                  unstash 'Java 8'
-                  sh './jenkins/test-static.sh'
+                  echo "run static java 8"
                 }
               }
             }
@@ -63,46 +59,42 @@ def call(body) {
             stages {
               stage("build7") {
                 steps {
-                  runLinuxScript(name: "build.sh")
+                   echo "run java 7"
                 }
                 post {
                   success {
-                    postBuildSuccess(stashName: "Java 7")
+                     echo "run java 7"
                   }
                 }
               }
               stage('Backend Java 7') {
                 steps {
-                  unstash 'Java 7'
-                  sh './jenkins/test-backend.sh'
+                  echo "run backend java 7"
                 }
                 post {
                   always {
-                    junit 'target/surefire-reports/**/TEST*.xml'
+                   echo "ran backend java 7"
                   }
                 }
               }
               stage('Frontend Java 7') {
                 steps {
-                  unstash 'Java 7'
-                  sh './jenkins/test-frontend.sh'
+                  echo "run frontend java 7"
                 }
                 post {
                   always {
-                    junit 'target/test-results/**/TEST*.xml'
+                    echo "ran frontend java 7"
                   }
                 }
               }
               stage('Performance Java 7') {
                 steps {
-                  unstash 'Java 7'
-                  sh './jenkins/test-performance.sh'
+                  echo "run perf java 7"
                 }
               }
               stage('Static Java 7') {
                 steps {
-                  unstash 'Java 7'
-                  sh './jenkins/test-static.sh'
+                  echo "ran perf java 7"
                 }
               }
             }
@@ -121,8 +113,7 @@ def call(body) {
         agent { label 'java7' }
         when { branch 'master' }
         steps {
-          unstash 'Java 7'
-          sh "./jenkins/deploy.sh ${pipelineParams.deployTo}"
+          echo "run deploy to staging java 7"
         }
       }
     }
