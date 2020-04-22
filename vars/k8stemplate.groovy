@@ -4,7 +4,10 @@ def call(body) {
     body.delegate = pipelineParams
     body()
 
-    
+        agent {
+            kubernetes {
+                label 'my-pod-template'
+                defaultContainer 'jnlp'
                 yaml """
 apiVersion: v1
 kind: Pod
@@ -24,5 +27,7 @@ spec:
     - cat
     tty: true
 """
+            }
+        }
  
 }
