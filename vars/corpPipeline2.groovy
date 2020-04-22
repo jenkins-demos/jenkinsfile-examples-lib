@@ -9,7 +9,7 @@ def call(body) {
             kubernetes {
                 label 'my-pod-template'
                 defaultContainer 'jnlp'
-                k8stemplate{}
+                k8stemplate()
             }
         }
         stages {
