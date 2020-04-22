@@ -1,15 +1,15 @@
 def call(body) {
-  def pipelineParams= [:]
-  body.resolveStrategy = Closure.DELEGATE_FIRST
-  body.delegate = pipelineParams
-  body()
+    def pipelineParams= [:]
+    body.resolveStrategy = Closure.DELEGATE_FIRST
+    body.delegate = pipelineParams
+    body()
 
-  pipeline {
+    pipeline {
         agent {
-        kubernetes {
-            label 'my-pod-template'
-            defaultContainer 'jnlp'
-            yaml """
+            kubernetes {
+                label 'my-pod-template'
+                defaultContainer 'jnlp'
+                yaml """
 apiVersion: v1
 kind: Pod
 metadata:
@@ -28,27 +28,27 @@ spec:
     - cat
     tty: true
 """
+            }
         }
-    }
-    stages {
-        stage('Run maven') {
-            steps {
-                container('maven') {
-                    sh 'mvn -version'
-                }
-                container('busybox') {
-                   script{
-                       try {
-                           sh 'exit 1'
-                       }
-                       catch (exc){
-                           echo 'somthing failed'
+        stages {
+            stage('Run maven') {
+                steps {
+                    container('maven') {
+                        sh 'mvn -version'
+                    }
+                    container('busybox') {
+                        script{
+                            try {
+                                sh 'exit 1'
+                            }
+                            catch (exc){
+                                echo 'somthing failed'
 
-                       }
-                   }
+                            }
+                        }
+                    }
                 }
             }
         }
     }
-}
 }
