@@ -6,10 +6,10 @@ def call(body) {
 
     pipeline {
         agent {
-        kubernetes {
-            label 'my-pod-template'
-            defaultContainer 'jnlp'
-            yaml """
+            kubernetes {
+                label 'my-pod-template'
+                defaultContainer 'jnlp'
+                yaml """
 apiVersion: v1
 kind: Pod
 metadata:
@@ -28,8 +28,8 @@ spec:
     - cat
     tty: true
 """
+            }
         }
-    
         stages {
             stage('Run maven') {
                 steps {
@@ -51,5 +51,4 @@ spec:
             }
         }
     }
-}
 }
